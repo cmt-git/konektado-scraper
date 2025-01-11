@@ -9,7 +9,16 @@ client = MongoClient(uri, ssl=True)
 db = client["globehackathon"]
 collection = db["tweets_data"]
 
+# *
+# *
+# *
+# * SPACE
+# *
+# *
+# *
 
+
+# region: Upload To MongoDB
 def UploadToMongoDB(_item):
     # Ensure _item is a list
     if not isinstance(_item, list):
@@ -26,3 +35,31 @@ def UploadToMongoDB(_item):
 
     # Print the inserted IDs
     print("Inserted IDs:", inserted_ids)
+
+
+# *
+# *
+# *
+# * SPACE
+# *
+# *
+# *
+
+
+# region: Get From MongoDB
+def GetFromMongoDB():
+    # Connect to MongoDB server
+    client = MongoClient(uri)
+
+    try:
+        print("Connected to MongoDB")
+
+        # Fetch all documents with a limit of 1000
+        results = list(collection.find().limit(1000))
+
+        return results
+    except Exception as e:
+        print("Error fetching data:", e)
+    finally:
+        # Close the connection
+        client.close()

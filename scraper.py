@@ -554,7 +554,9 @@ for i in range(42):
             )
 
         ncr_tweets.append(t)
-UploadToMongoDB(ncr_tweets)
+
+print("uploading to mongodb...")
+# UploadToMongoDB(ncr_tweets)
 
 # with open("output.json", "w") as f:
 #     json.dump(ncr_tweets, f, indent=4)
