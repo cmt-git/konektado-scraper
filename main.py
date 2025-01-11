@@ -7,7 +7,7 @@ import uvicorn
 app = FastAPI()
 
 
-@app.get("/scrape/get")
+@app.get("/scrape")
 async def scrape_get():
     try:
         current_items = GetFromMongoDB()  # Call your MongoDB function
